@@ -10,6 +10,6 @@ require __DIR__ . '/auth.php';
 // Route fallback
 Route::fallback(function () {
     return response()->json([
-        'message' => __('messages.errors.404.fallback_route'),
+        'message' => __('messages.route.fallback'),
     ], 404);
 });

@@ -48,27 +48,27 @@ class Handler extends ExceptionHandler
 
         $this->renderable(function (AuthenticationException $e, $request) {
             return response()->json([
-                'message' => __('messages.errors.401.unauthenticated')
+                'message' => __('messages.unauthenticated')
             ], 401);
         });
 
         $this->renderable(function (Exception $e, $request) {
             if ($e->getPrevious() && $e->getPrevious() instanceof ModelNotFoundException) {
                 return response()->json([
-                    'message' => __('messages.errors.404.model.no_found')
+                    'message' => __('messages.model.no_found')
                 ], 404);
             }
         });
 
         $this->renderable(function (NotFoundHttpException $e, $request) {
             return response()->json([
-                'message' => __('messages.errors.404.model.not_found')
+                'message' => __('messages.model.not_found')
             ], 404);
         });
 
         $this->renderable(function (MethodNotAllowedHttpException $e, $request) {
             return response()->json([
-                'message' => __('messages.errors.405.method.not_allowed', [
+                'message' => __('messages.method.not_allowed', [
                     'method' => $request->getMethod()
                 ])
             ], 405);
@@ -76,7 +76,7 @@ class Handler extends ExceptionHandler
 
         $this->renderable(function (UnauthorizedException $e, $request) {
             return response()->json([
-                'message' => __('messages.errors.403.unauthorized')
+                'message' => __('messages.unauthorized')
             ], 403);
         });
     }
