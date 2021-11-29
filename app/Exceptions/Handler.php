@@ -2,11 +2,13 @@
 
 namespace App\Exceptions;
 
+use App\Http\Resources\v1\DataResource;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\UnauthorizedException;
+use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
@@ -77,5 +79,24 @@ class Handler extends ExceptionHandler
                 'message' => __('messages.errors.403.unauthorized')
             ], 403);
         });
+    }
+
+    /**
+     * Convert a validation exception into a JSON response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Validation\ValidationException  $exception
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function invalidJson($request, ValidationException $exception)
+    {
+        return response()->json(new DataResource(
+            [
+                'message' => $exception->getMessage(),
+                'success' => false,
+                'code' => $exception->status,
+                'errors' => $exception->errors()
+            ]
+        ), $exception->status);
     }
 }

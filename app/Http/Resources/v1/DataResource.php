@@ -14,15 +14,22 @@ class DataResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
+        $data = [
             'service' => config('api-sport.service'),
             'version' => config('api-sport.version'),
             'language' => app()->getLocale(),
-            'success' => $this['success'],
-            'code' => $this['code'],
-            'message' => $this['message'],
+            'success' => $this['success'] ?? true,
+            'code' => $this['code'] ?? 200,
+            'message' => $this['message'] ?? '',
             'support' => config('api-sport.support'),
-            'data' => $this['data'],
         ];
+
+        if ($this['success']) {
+            $data['data'] = $this['data'];
+            return $data;
+        } else {
+            $data['errors'] = $this['errors'];
+            return $data;
+        }
     }
 }
