@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\auth\DeleteUserController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterUserController;
@@ -13,3 +14,6 @@ Route::post('/login', LoginController::class)
 
 Route::delete('/logout', LogoutController::class)
     ->name('user.logout');
+
+Route::delete('/user/delete', DeleteUserController::class)
+    ->name('user.delete');
