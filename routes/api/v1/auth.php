@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -9,3 +10,6 @@ Route::post('/register', RegisterUserController::class)
 
 Route::post('/login', LoginController::class)
     ->name('user.login');
+
+Route::delete('/logout', LogoutController::class)
+    ->name('user.logout');

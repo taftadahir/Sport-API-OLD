@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use App\Http\Resources\v1\DataResource;
 use Exception;
+use GuzzleHttp\Exception\ServerException;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
@@ -11,6 +12,7 @@ use Illuminate\Validation\UnauthorizedException;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -45,6 +47,18 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        // $this->renderable(function (RouteNotFoundException $e, $request) {
+        //     return response()->json([
+        //         'message' => __('messages.unauthenticated')
+        //     ], 500);
+        // });
+
+        // $this->renderable(function (ServerException $e, $request) {
+        //     return response()->json([
+        //         'message' => __('messages.unauthenticatedx')
+        //     ], 500);
+        // });
 
         $this->renderable(function (AuthenticationException $e, $request) {
             return response()->json([

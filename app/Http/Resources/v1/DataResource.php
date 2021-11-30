@@ -25,7 +25,9 @@ class DataResource extends JsonResource
         ];
 
         if ($this['success']) {
-            $data['data'] = $this['data'];
+            if (isset($this['data'])) {
+                $data['data'] = $this['data'];
+            }
             return $data;
         } else {
             $data['errors'] = $this['errors'];
