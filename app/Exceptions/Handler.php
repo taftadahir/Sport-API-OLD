@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use App\Http\Resources\v1\DataResource;
+use BadMethodCallException;
 use Exception;
 use GuzzleHttp\Exception\ServerException;
 use Illuminate\Auth\AuthenticationException;
@@ -55,6 +56,12 @@ class Handler extends ExceptionHandler
         // });
 
         // $this->renderable(function (ServerException $e, $request) {
+        //     return response()->json([
+        //         'message' => __('messages.unauthenticatedx')
+        //     ], 500);
+        // });
+
+        // $this->renderable(function (BadMethodCallException $e, $request) {
         //     return response()->json([
         //         'message' => __('messages.unauthenticatedx')
         //     ], 500);

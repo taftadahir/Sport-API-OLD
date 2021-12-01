@@ -4,6 +4,7 @@ use App\Http\Controllers\auth\DeleteUserController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterUserController;
+use App\Http\Controllers\auth\UpdateUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', RegisterUserController::class)
@@ -17,3 +18,6 @@ Route::delete('/logout', LogoutController::class)
 
 Route::delete('/user/delete', DeleteUserController::class)
     ->name('user.delete');
+
+Route::put('/user/update', UpdateUserController::class)
+    ->name('user.update');
