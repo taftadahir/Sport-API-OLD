@@ -57,4 +57,9 @@ class User extends Authenticatable
         'deleted_at' => 'datetime',
         'email_verified_at' => 'datetime',
     ];
+
+    public function exercises()
+    {
+        return $this->hasMany(Exercise::class, 'created_by');
+    }
 }

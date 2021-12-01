@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Resources\v1\DataResource;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 
 require __DIR__ . '/auth.php';
+
+require __DIR__ . '/exercise.php';
 
 // Route fallback
 Route::fallback(function () {
