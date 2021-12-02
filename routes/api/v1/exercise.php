@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\v1\exercise\DeleteExerciseController;
 use App\Http\Controllers\api\v1\exercise\ShowExerciseController;
 use App\Http\Controllers\api\v1\exercise\StoreExerciseController;
 use App\Http\Controllers\api\v1\exercise\UpdateExerciseController;
@@ -13,3 +14,6 @@ Route::get('/exercises/{exercise}', ShowExerciseController::class)
 
 Route::put('/exercises/{exercise}', UpdateExerciseController::class)
     ->name('exercise.update');
+
+Route::delete('/exercises/{exercise}', DeleteExerciseController::class)
+    ->name('exercise.destroy');
