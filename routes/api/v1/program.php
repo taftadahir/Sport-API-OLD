@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\v1\program\DeleteProgramController;
 use App\Http\Controllers\api\v1\program\ShowProgramController;
 use App\Http\Controllers\api\v1\program\StoreProgramController;
 use App\Http\Controllers\api\v1\program\UpdateProgramController;
@@ -13,3 +14,6 @@ Route::get('/programs/{program}', ShowProgramController::class)
 
 Route::put('/programs/{program}', UpdateProgramController::class)
     ->name('program.update');
+
+Route::delete('/programs/{program}', DeleteProgramController::class)
+    ->name('program.destroy');
