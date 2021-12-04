@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\v1\set\DeleteSetController;
 use App\Http\Controllers\api\v1\set\ShowSetController;
 use App\Http\Controllers\api\v1\set\StoreSetController;
 use App\Http\Controllers\api\v1\set\UpdateSetController;
@@ -11,10 +12,13 @@ Route::group(
         Route::post('', StoreSetController::class)
             ->name('store');
 
-        Route::get('/{set}', ShowSetController::class)
-            ->name('show');
-
         Route::put('/{set}', UpdateSetController::class)
             ->name('update');
     }
 );
+
+Route::get('sets/{set}', ShowSetController::class)
+    ->name('program.set.show');
+
+Route::delete('sets/{set}', DeleteSetController::class)
+    ->name('program.set.destroy');
