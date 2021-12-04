@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\v1\workout\ShowWorkoutController;
 use App\Http\Controllers\api\v1\workout\StoreWorkoutController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,3 +11,6 @@ Route::group(
             ->name('store');
     }
 );
+
+Route::get('workouts/{workout}', ShowWorkoutController::class)
+    ->name('program.exercise.workout.show');
