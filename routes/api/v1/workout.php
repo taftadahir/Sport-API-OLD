@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\api\v1\workout\ShowWorkoutController;
 use App\Http\Controllers\api\v1\workout\StoreWorkoutController;
+use App\Http\Controllers\api\v1\workout\UpdateWorkoutController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(
@@ -9,6 +10,9 @@ Route::group(
     function () {
         Route::post('', StoreWorkoutController::class)
             ->name('store');
+
+        Route::put('/{workout}', UpdateWorkoutController::class)
+            ->name('update');
     }
 );
 
