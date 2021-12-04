@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Program extends Model
+class Set extends Model
 {
     use HasFactory, SoftDeletes, CascadeSoftDeletes;
 
@@ -17,7 +17,7 @@ class Program extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'days', 'use_warm_up', 'use_program_set', 'use_workout_set', 'published', 'image'
+        'prevable_type', 'prevable_id', 'name', 'day', 'set', 'rest_time', 'warm_up_set'
     ];
 
     /**
@@ -53,22 +53,17 @@ class Program extends Model
      * @var array
      */
     protected $casts = [
+        'prevable_type' => 'string',
+        'prevable_id' => 'integer',
         'name' => 'string',
-        'image' => 'string',
-        'days' => 'integer',
-        'use_warm_up' => 'boolean',
-        'use_program_set' => 'boolean',
-        'use_workout_set' => 'boolean',
-        'published' => 'boolean',
+        'day' => 'integer',
+        'set' => 'integer',
+        'rest_time' => 'integer',
+        'warm_up_set' => 'boolean',
     ];
 
-    public function createdBy()
+    public function program()
     {
-        return $this->belongsTo(User::class, 'created_by');
-    }
-
-    public function sets()
-    {
-        return $this->hasMany(Set::class);
+        return $this->belongsTo(Program::class);
     }
 }
