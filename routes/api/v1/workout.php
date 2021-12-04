@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\v1\workout\DeleteWorkoutController;
 use App\Http\Controllers\api\v1\workout\ShowWorkoutController;
 use App\Http\Controllers\api\v1\workout\StoreWorkoutController;
 use App\Http\Controllers\api\v1\workout\UpdateWorkoutController;
@@ -18,3 +19,6 @@ Route::group(
 
 Route::get('workouts/{workout}', ShowWorkoutController::class)
     ->name('program.exercise.workout.show');
+
+Route::delete('workouts/{workout}', DeleteWorkoutController::class)
+    ->name('program.exercise.workout.destroy');
