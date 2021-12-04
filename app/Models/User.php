@@ -67,4 +67,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Program::class, 'created_by');
     }
+
+    public function statistics()
+    {
+        return $this->hasMany(Statistic::class);
+    }
 }

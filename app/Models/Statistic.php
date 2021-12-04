@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Workout extends Model
+class Statistic extends Model
 {
     use HasFactory, SoftDeletes, CascadeSoftDeletes;
 
@@ -17,7 +17,7 @@ class Workout extends Model
      * @var array
      */
     protected $fillable = [
-        'prevable_type', 'prevable_id', 'day', 'reps_based', 'reps', 'time_based', 'time', 'set_number', 'rest_time'
+        'reps', 'set_number', 'time'
     ];
 
     /**
@@ -44,7 +44,7 @@ class Workout extends Model
      * @var array
      */
     protected $hidden = [
-        'id', 'deleted_at'
+        'deleted_at', 'id'
     ];
 
     /**
@@ -53,40 +53,23 @@ class Workout extends Model
      * @var array
      */
     protected $casts = [
-        'exercise_id' => 'integer',
-        'program_id' => 'integer',
-        'set_id' => 'integer',
-        'day' => 'integer',
+        'workout_id' => 'integer',
+        'user_id' => 'integer',
         'reps' => 'integer',
-        'time' => 'integer',
         'set_number' => 'integer',
-        'rest_time' => 'integer',
-        'prevable_id' => 'integer',
-        'prevable_type' => 'string',
-        'reps_based' => 'boolean',
-        'time_based' => 'boolean',
+        'time' => 'integer',
         'updated_at' => 'datetime',
         'created_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
 
-    public function program()
+    public function user()
     {
-        return $this->belongsTo(Program::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function exercise()
+    public function workout()
     {
-        return $this->belongsTo(Exercise::class);
-    }
-
-    public function set()
-    {
-        return $this->belongsTo(Set::class);
-    }
-
-    public function statistics()
-    {
-        return $this->hasMany(Statistic::class);
+        return $this->belongsTo(Workout::class);
     }
 }

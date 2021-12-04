@@ -13,6 +13,8 @@ require __DIR__ . '/set.php';
 
 require __DIR__ . '/workout.php';
 
+require __DIR__ . '/statistic.php';
+
 // Route fallback
 Route::fallback(function () {
     return response()->json([
