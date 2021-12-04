@@ -20,7 +20,7 @@ class StatisticFactory extends Factory
             'workout_id' => $this->faker->randomElement(Workout::select('id')->get()),
             'reps' => $this->faker->numberBetween(0, 100),
             'time' => $this->faker->numberBetween(0, 1000000),
-            'set' => $this->faker->numberBetween(0, 100),
+            'set_number' => $this->faker->numberBetween(0, 100),
         ];
     }
 
