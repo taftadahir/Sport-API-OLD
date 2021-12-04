@@ -46,7 +46,7 @@ class DeleteStatisticTest extends TestCase
         $program = Program::factory()->createdBy($user)->published()->create();
         $exercise = Exercise::factory()->createdBy($user)->create();
         $workout = Workout::factory()->program($program)->exercise($exercise)->create();
-        $statistic = Statistic::factory()->workout($workout)->create();
+        $statistic = Statistic::factory()->workout($workout)->user($user)->create();
 
         Sanctum::actingAs($user2);
         $this->deleteJson(

@@ -6,6 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class {{ class }} extends FormRequest
 {
+    protected $stopOnFirstFailure = true;
+    
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -14,6 +16,16 @@ class {{ class }} extends FormRequest
     public function authorize()
     {
         return true;
+    }
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        // 
     }
 
     /**
@@ -26,5 +38,15 @@ class {{ class }} extends FormRequest
         return [
             //
         ];
+    }
+
+    /**
+     * Handle a passed validation attempt.
+     *
+     * @return void
+     */
+    protected function passedValidation()
+    {
+        //
     }
 }

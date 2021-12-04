@@ -30,7 +30,9 @@ class DataResource extends JsonResource
             }
             return $data;
         } else {
-            $data['errors'] = $this['errors'];
+            if (isset($this['errors'])) {
+                $data['errors'] = $this['errors'];
+            }
             return $data;
         }
     }
