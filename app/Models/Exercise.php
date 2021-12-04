@@ -58,11 +58,19 @@ class Exercise extends Model
         'time_based' => 'boolean',
         'reps_based' => 'boolean',
         'published' => 'boolean',
-        'created_by' => 'integer'
+        'created_by' => 'integer',
+        'updated_at' => 'datetime',
+        'created_at' => 'datetime',
+        'deleted_at' => 'datetime',
     ];
 
     public function createdBy()
     {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function workouts()
+    {
+        return $this->hasMany(Workout::class);
     }
 }
