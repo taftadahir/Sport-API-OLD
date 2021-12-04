@@ -17,7 +17,7 @@ class Set extends Model
      * @var array
      */
     protected $fillable = [
-        'prevable_type', 'prevable_id', 'name', 'day', 'set', 'rest_time', 'warm_up_set'
+        'prevable_type', 'prevable_id', 'name', 'day', 'number', 'rest_time', 'warm_up_set', 'set_id'
     ];
 
     /**
@@ -57,9 +57,12 @@ class Set extends Model
         'prevable_id' => 'integer',
         'name' => 'string',
         'day' => 'integer',
-        'set' => 'integer',
+        'number' => 'integer',
         'rest_time' => 'integer',
         'warm_up_set' => 'boolean',
+        'updated_at' => 'datetime',
+        'created_at' => 'datetime',
+        'deleted_at' => 'datetime',
     ];
 
     public function program()

@@ -24,14 +24,14 @@ class ShowSetTest extends TestCase
 
         Sanctum::actingAs($user);
         $response = $this
-            ->getJson(route('program.set.show', ['set' => $set->id, 'program' => $program->id]));
+            ->getJson(route('program.set.show', ['set' => $set->id]));
 
         $response->assertOk()
             ->assertJsonStructure([
                 'service', 'version', 'language', 'success', 'code', 'message', 'support',
                 'data' => [
                     'set' => [
-                        'name', 'program_id', 'day', 'set', 'rest_time', 'warm_up_set'
+                        'name', 'program_id', 'day', 'number', 'rest_time', 'warm_up_set'
                     ]
                 ]
             ]);
@@ -49,7 +49,7 @@ class ShowSetTest extends TestCase
 
         Sanctum::actingAs($user2);
         $response = $this
-            ->getJson(route('program.set.show', ['set' => $set->id, 'program' => $program->id]));
+            ->getJson(route('program.set.show', ['set' => $set->id]));
 
         $response->assertNotFound();
     }
@@ -64,7 +64,7 @@ class ShowSetTest extends TestCase
         $set = Set::factory()->program($program)->create();
 
         $response = $this
-            ->getJson(route('program.set.show', ['set' => $set->id, 'program' => $program->id]));
+            ->getJson(route('program.set.show', ['set' => $set->id]));
 
         $response->assertUnauthorized();
     }

@@ -26,10 +26,11 @@ class ShowSetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Program $program, Set $set)
+    public function __invoke(Set $set)
     {
+        $program = Program::where('id', $set->program_id)->first();
         // Program is not published and user is not creator => 404
-        if (((!$program->published) && auth()->id() != null && ($program->createdBy->id != auth()->id())) || $program->id != $set->program_id) {
+        if ((!$program->published) && auth()->id() != null && ($program->created_by != auth()->id())) {
             throw new NotFoundHttpException();
         }
 

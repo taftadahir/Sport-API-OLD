@@ -29,7 +29,7 @@ class StoreSetTest extends TestCase
                 'service', 'version', 'language', 'success', 'code', 'message', 'support',
                 'data' => [
                     'set' => [
-                        'name', 'program_id', 'day', 'set', 'rest_time', 'warm_up_set'
+                        'name', 'program_id', 'day', 'number', 'rest_time', 'warm_up_set'
                     ]
                 ]
             ]);

@@ -19,7 +19,7 @@ class CreateSetsTable extends Migration
             $table->foreignId('program_id')->constrained();
             $table->string('name');
             $table->integer('day')->unsigned()->nullable();
-            $table->integer('set')->unsigned()->default(1);
+            $table->integer('number')->unsigned()->default(1);
             $table->integer('rest_time')->unsigned()->nullable();
             $table->boolean('warm_up_set')->nullable();
             $table->timestamps();

@@ -22,7 +22,7 @@ class SetFactory extends Factory
             'program_id' => $this->faker->randomElement(Program::select('id')->get()),
             'name' => $this->faker->name(),
             'day' => $this->faker->numberBetween(0, 100),
-            'set' => $this->faker->numberBetween(0, 100),
+            'number' => $this->faker->numberBetween(0, 100),
             'rest_time' => $this->faker->numberBetween(0, 10000000),
             'warm_up_set' => $this->faker->boolean,
         ];

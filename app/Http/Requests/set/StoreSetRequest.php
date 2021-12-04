@@ -44,7 +44,7 @@ class StoreSetRequest extends FormRequest
             'prevable_id' => ['nullable', 'numeric', 'required_with:prevable_type', $prevable_type ? $prev_id_rules : ''],
             'name' => ['bail', 'required', 'string', 'max:255'],
             'day' => ['nullable', 'numeric', 'min:0'],
-            'set' => ['bail', 'required', 'numeric', 'min:0'],
+            'number' => ['bail', 'required', 'numeric', 'min:0'],
             'rest_time' => ['nullable', 'numeric', 'min:0'],
             'warm_up_set' => ['nullable', 'boolean'],
         ];
