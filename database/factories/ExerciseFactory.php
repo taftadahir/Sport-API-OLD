@@ -19,7 +19,7 @@ class ExerciseFactory extends Factory
             'time_based' => $this->faker->boolean,
             'reps_based' => $this->faker->boolean,
             'published' => false,
-            'avatar' => $this->faker->slug,
+            'image' => $this->faker->slug,
             'created_by' => $this->faker->randomElement(User::select('id')->get())
         ];
     }

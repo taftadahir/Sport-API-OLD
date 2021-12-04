@@ -19,7 +19,7 @@ class ExerciseResource extends JsonResource
             'time_based' => $this->time_based,
             'reps_based' => $this->reps_based,
             'published' => $this->published,
-            'avatar' => $this->avatar,
+            'image' => $this->image,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

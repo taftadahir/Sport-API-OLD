@@ -30,7 +30,7 @@ class UpdateExerciseTest extends TestCase
                 'service', 'version', 'language', 'success', 'code', 'message', 'support',
                 'data' => [
                     'exercise' => [
-                        'name', 'time_based', 'reps_based', 'published', 'avatar', 'created_at', 'updated_at'
+                        'name', 'time_based', 'reps_based', 'published', 'image', 'created_at', 'updated_at'
                     ]
                 ]
             ]);

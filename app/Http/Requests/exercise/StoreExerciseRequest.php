@@ -34,7 +34,7 @@ class StoreExerciseRequest extends FormRequest
             'time_based' => ['nullable', 'boolean'],
             'reps_based' => ['nullable', 'boolean'],
             'published' => ['nullable', 'boolean'],
-            'avatar' => ['nullable', 'string', 'max:255']
+            'image' => ['nullable', 'string', 'max:255']
         ];
     }
 }

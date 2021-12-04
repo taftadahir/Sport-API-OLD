@@ -20,7 +20,7 @@ class CreateExercisesTable extends Migration
             $table->boolean('time_based')->nullable();
             $table->boolean('reps_based')->nullable();
             $table->boolean('published')->nullable();
-            $table->string('avatar')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
