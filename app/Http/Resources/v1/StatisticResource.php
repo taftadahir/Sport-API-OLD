@@ -19,6 +19,8 @@ class StatisticResource extends JsonResource
             'reps' => $this->reps,
             'set_number' => $this->set_number,
             'time' => $this->time,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

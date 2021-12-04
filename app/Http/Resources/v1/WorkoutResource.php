@@ -26,6 +26,8 @@ class WorkoutResource extends JsonResource
             'time' => $this->time,
             'set_number' => $this->set_number,
             'rest_time' => $this->rest_time,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

@@ -31,6 +31,7 @@ class ShowProgramController extends Controller
         if ((!$program->published) && auth()->id() != null && ($program->createdBy->id != auth()->id())) {
             throw new NotFoundHttpException();
         }
+        $program->refresh()->with(['workouts', 'sets']);
 
         return response()->json(
             new DataResource(

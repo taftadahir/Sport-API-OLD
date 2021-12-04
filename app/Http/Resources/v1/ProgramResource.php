@@ -24,6 +24,10 @@ class ProgramResource extends JsonResource
             'image' => $this->image,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'sets' => SetResource::collection($this->sets),
+            'workouts' => WorkoutResource::collection($this->workouts),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

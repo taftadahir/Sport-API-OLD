@@ -18,9 +18,11 @@ class SetResource extends JsonResource
             'program_id' => $this->program_id,
             'name' => $this->name,
             'day' => $this->day,
-            'set' => $this->set,
+            'number' => $this->number,
             'rest_time' => $this->rest_time,
             'warm_up_set' => $this->warm_up_set,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

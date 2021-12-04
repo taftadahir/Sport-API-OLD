@@ -29,6 +29,7 @@ class UpdateProgramController extends Controller
     {
         $validated = $request->validated();
         $program->update($validated);
+        $program->refresh()->with(['workouts', 'sets']);
 
         return response()->json(
             new DataResource(

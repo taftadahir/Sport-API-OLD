@@ -60,6 +60,9 @@ class Program extends Model
         'use_program_set' => 'boolean',
         'use_workout_set' => 'boolean',
         'published' => 'boolean',
+        'updated_at' => 'datetime',
+        'created_at' => 'datetime',
+        'deleted_at' => 'datetime',
     ];
 
     public function createdBy()
@@ -70,5 +73,10 @@ class Program extends Model
     public function sets()
     {
         return $this->hasMany(Set::class);
+    }
+
+    public function workouts()
+    {
+        return $this->hasMany(Workout::class);
     }
 }
