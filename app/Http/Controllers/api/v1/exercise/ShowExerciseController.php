@@ -38,7 +38,7 @@ class ShowExerciseController extends Controller
                 [
                     'message' => __('messages.exercise.show.success'),
                     'success' => true,
-                    'code' => 201,
+                    'code' => 200,
                     'data' => [
                         'exercise' => new ExerciseResource($exercise)
                     ]
