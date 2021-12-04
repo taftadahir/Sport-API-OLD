@@ -39,7 +39,7 @@ class UpdateExerciseRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['nullable', 'string', 'max:255', Rule::unique('exercises')->where('created_by', $this->user()->id)->ignore($this->exercise->id)],
+            'name' => ['bail', 'required', 'string', 'max:255', Rule::unique('exercises')->where('created_by', $this->user()->id)->ignore($this->exercise->id)],
             'time_based' => ['nullable', 'boolean'],
             'reps_based' => ['nullable', 'boolean'],
             'published' => ['nullable', 'boolean'],
