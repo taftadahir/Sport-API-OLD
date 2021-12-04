@@ -38,6 +38,7 @@ class StoreWorkoutController extends Controller
         }
         $workout->exercise()->associate($exercise);
         $program->workouts()->save($workout);
+        $workout->refresh()->with('exercise');
 
         return response()->json(
             new DataResource(
